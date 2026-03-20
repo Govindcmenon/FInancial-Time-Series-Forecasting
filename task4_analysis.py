@@ -24,7 +24,7 @@ COLORS = {"TCS": "#1f77b4", "Infosys": "#ff7f0e", "Wipro": "#2ca02c"}
 
 # ─── Load results ──────────────────────────────────────────────────────────────
 print("📂 Loading model results...")
-with open("outputs/results_summary.json") as f:
+with open("outputs/results.json") as f:
     summary = json.load(f)
 
 # Reload per-company predictions (stored in task3)
@@ -84,7 +84,7 @@ for ax, name in zip(axes, NAMES):
     else:
         # Simulate: add noise to show realistic scatter
         rng    = np.random.default_rng(42)
-        close  = np.load(f"outputs/{name}_close_normalized.npy")
+        close  = np.load(f"outputs/{name}_close.npy")
         split  = int(len(close) * 0.64)
         y_true = close[split : split + 200]
         y_pred = y_true + rng.normal(0, 0.03, len(y_true))

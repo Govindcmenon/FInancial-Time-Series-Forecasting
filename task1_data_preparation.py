@@ -184,8 +184,8 @@ fig, axes = plt.subplots(len(NAMES), 1, figsize=(14, 9), sharex=True)
 fig.suptitle("Trading Volume Over Time (Normalized)", fontsize=14, fontweight="bold")
 
 for ax, name, color in zip(axes, NAMES, colors):
-    ax.bar(normalized[name].index, normalized[name]["Volume"],
-           color=color, alpha=0.6, width=1, label=f"{name} Volume")
+    ax.plot(normalized[name].index, normalized[name]["Volume"],
+        color=color, alpha=0.7, label=f"{name} Volume")
     ax.set_ylabel("Norm. Volume", fontsize=9)
     ax.legend(loc="upper left", fontsize=9)
     ax.grid(True, alpha=0.3, axis="y")
